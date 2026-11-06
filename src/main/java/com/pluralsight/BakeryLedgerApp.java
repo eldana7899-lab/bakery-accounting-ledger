@@ -210,6 +210,7 @@ public class BakeryLedgerApp {
 
                 case "X":
                     System.out.println("Exiting Bakery Accounting Ledger...");
+                    running = false;
                     break;
 
                 default:
