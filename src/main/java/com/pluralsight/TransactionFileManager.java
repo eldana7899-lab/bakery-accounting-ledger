@@ -24,7 +24,7 @@ public class TransactionFileManager {
                     + transaction.getTime() + "|"
                     + transaction.getDescription() + "|"
                     + transaction.getVendor() + "|"
-                    + transaction.getAmount() + "\n");
+                    + String.format("%.2f", transaction.getAmount()) + "\n");
 
         } catch (IOException e) {
             System.out.println("Error saving transaction: " + e.getMessage());

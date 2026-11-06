@@ -50,7 +50,7 @@ public class BakeryLedgerApp {
                     System.out.print("Enter deposit amount: ");
                     double amount = Double.parseDouble(scanner.nextLine());
                     String date = LocalDate.now().toString();
-                    String time = LocalTime.now().toString();
+                    String time = LocalTime.now().withNano(0).toString();
                     // Create a new deposit transaction
                     Transaction transaction = new Transaction(
                             date, time, description, vendor, amount
@@ -80,7 +80,7 @@ public class BakeryLedgerApp {
                     String paymentDate = LocalDate.now().toString();
 
                     // Get the current time
-                    String paymentTime = LocalTime.now().toString();
+                    String paymentTime = LocalTime.now().withNano(0).toString();
 
                     // Create a payment transaction
                     Transaction paymentTransaction = new Transaction(
