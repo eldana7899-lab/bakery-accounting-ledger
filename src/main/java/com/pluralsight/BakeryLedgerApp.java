@@ -100,16 +100,16 @@ public class BakeryLedgerApp {
                     List<Transaction> ledgerTransactions = fileManager.readTransactions();
 
                     System.out.println("\n========== BAKERY LEDGER ==========");
-                    System.out.println("1) All Transactions");
-                    System.out.println("2) Deposits Only");
-                    System.out.println("3) Payments Only");
-                    System.out.println("4) Reports");
+                    System.out.println("A) All Transactions");
+                    System.out.println("D) Deposits Only");
+                    System.out.println("P) Payments Only");
+                    System.out.println("R) Reports");
                     System.out.println("H) Home");
                     System.out.print("Choose an option: ");
 
-                    String ledgerChoice = scanner.nextLine();
+                    String ledgerChoice = scanner.nextLine().trim().toUpperCase();
 
-                    if (ledgerChoice.equals("4")) {
+                    if (ledgerChoice.equals("R")) {
 
                         System.out.println("\n========== FINANCIAL REPORTS ==========");
                         System.out.println("1) Month to Date");
@@ -182,18 +182,18 @@ public class BakeryLedgerApp {
                         System.out.println("----------------------------------");
                         System.out.printf("Total: $%.2f%n", reportTotal);
 
-                    } else if (ledgerChoice.equals("1")
-                            || ledgerChoice.equals("2")
-                            || ledgerChoice.equals("3")) {
+                    } else if (ledgerChoice.equals("A")
+                            || ledgerChoice.equals("D")
+                            || ledgerChoice.equals("P")) {
 
                         for (int i = ledgerTransactions.size() - 1; i >= 0; i--) {
 
                             Transaction ledgerItem = ledgerTransactions.get(i);
                             double ledgerAmount = ledgerItem.getAmount();
 
-                            if (ledgerChoice.equals("1")
-                                    || (ledgerChoice.equals("2") && ledgerAmount > 0)
-                                    || (ledgerChoice.equals("3") && ledgerAmount < 0)) {
+                            if (ledgerChoice.equals("A")
+                                    || (ledgerChoice.equals("D") && ledgerAmount > 0)
+                                    || (ledgerChoice.equals("P") && ledgerAmount < 0)) {
 
                                 System.out.println("----------------------------------");
                                 System.out.println("Date: " + ledgerItem.getDate());
